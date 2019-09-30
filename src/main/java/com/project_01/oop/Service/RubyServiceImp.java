@@ -10,30 +10,22 @@ public class RubyServiceImp extends MineralService {
     private List<Mineral> rubies;
 
     public List<Mineral> getAll(List<Mineral> minerals) {
-         rubies = minerals.stream()
-                .filter( i -> ((Object) i).getClass().toString().endsWith("Ruby"))
-                .collect(Collectors.toList());
+        rubies = minerals.stream().filter(i -> ((Object) i).getClass().toString().endsWith("Ruby")).collect(Collectors.toList());
         return rubies;
     }
 
     @Override
     double countAll() {
-        return  rubies.stream()
-                .mapToDouble(i -> i.getPrice())
-                .sum();
+        return rubies.stream().mapToDouble(i -> i.getPrice()).sum();
     }
 
     @Override
     void sortByPrecious() {
-        rubies.stream()
-                .mapToDouble(i -> i.getPrice())
-                .sorted();
+        rubies.stream().mapToDouble(i -> i.getPrice()).sorted();
     }
 
     @Override
     List<Mineral> getMineralByTransparensy(Mineral.Transparency transparency) {
-        return rubies.stream()
-                .filter(i -> i.getTransparency() == transparency)
-                .collect(Collectors.toList());
+        return rubies.stream().filter(i -> i.getTransparency() == transparency).collect(Collectors.toList());
     }
 }

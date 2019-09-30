@@ -10,30 +10,22 @@ public class MalachiteServiceImp extends MineralService {
     List<Mineral> malachites;
 
     public List<Mineral> getAll(List<Mineral> minerals) {
-         malachites = minerals.stream()
-                .filter( i -> ((Object) i).getClass().toString().endsWith("Malachite"))
-                .collect(Collectors.toList());
-         return malachites;
+        malachites = minerals.stream().filter(i -> ((Object) i).getClass().toString().endsWith("Malachite")).collect(Collectors.toList());
+        return malachites;
     }
 
     @Override
     double countAll() {
-        return  malachites.stream()
-                .mapToDouble(i -> i.getPrice())
-                .sum();
+        return malachites.stream().mapToDouble(i -> i.getPrice()).sum();
     }
 
     @Override
     void sortByPrecious() {
-        malachites.stream()
-                .mapToDouble(i -> i.getPrice())
-                .sorted();
+        malachites.stream().mapToDouble(i -> i.getPrice()).sorted();
     }
 
     @Override
     List<Mineral> getMineralByTransparensy(Mineral.Transparency transparency) {
-        return malachites.stream()
-                .filter(i -> i.getTransparency() == transparency)
-                .collect(Collectors.toList());
+        return malachites.stream().filter(i -> i.getTransparency() == transparency).collect(Collectors.toList());
     }
 }

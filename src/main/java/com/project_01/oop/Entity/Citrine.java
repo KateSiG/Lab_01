@@ -2,7 +2,7 @@ package com.project_01.oop.Entity;
 
 import java.text.DecimalFormat;
 
-public class Citrine extends Gemstone{
+public class Citrine extends Gemstone {
     private double carat;
     private double price;
     private boolean isPrecious = false;
@@ -33,9 +33,6 @@ public class Citrine extends Gemstone{
     @Override
     public String toString() {
         DecimalFormat decimalFormat = new DecimalFormat("#.00");
-        return "\nCitrine    " + " carat  = " + decimalFormat.format(carat)
-                + ", price = " + decimalFormat.format(price)
-                + ", isPrecious  = " + isPrecious
-                + ", transparency  = " + transparency;
+        return "\nCitrine    " + " carat  = " + decimalFormat.format(carat) + ", price = " + decimalFormat.format(price) + ", isPrecious  = " + isPrecious + ", transparency  = " + transparency;
     }
 }

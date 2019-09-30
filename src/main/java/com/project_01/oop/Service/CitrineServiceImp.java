@@ -10,9 +10,7 @@ public class CitrineServiceImp extends MineralService {
     List<Mineral> citrines;
 
     public List<Mineral> getAll(List<Mineral> minerals) {
-        citrines = minerals.stream()
-                .filter( i -> ((Object) i).getClass().toString().endsWith("Citrine"))
-                .collect(Collectors.toList());
+        citrines = minerals.stream().filter(i -> ((Object) i).getClass().toString().endsWith("Citrine")).collect(Collectors.toList());
         return citrines;
     }
 

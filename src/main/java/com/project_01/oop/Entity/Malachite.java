@@ -33,9 +33,6 @@ public class Malachite extends Gemstone {
     @Override
     public String toString() {
         DecimalFormat decimalFormat = new DecimalFormat("#.00");
-        return "\nMalachite  " + " carat  = " + decimalFormat.format(carat)
-                + ", price = " + decimalFormat.format(price)
-                + ", isPrecious  = " + isPrecious
-                + ", transparency  = " + transparency ;
+        return "\nMalachite  " + " carat  = " + decimalFormat.format(carat) + ", price = " + decimalFormat.format(price) + ", isPrecious  = " + isPrecious + ", transparency  = " + transparency;
     }
 }

@@ -10,9 +10,7 @@ public class BerylServiceImp extends MineralService {
     private List<Mineral> beryls;
 
     public List<Mineral> getAll(List<Mineral> minerals) {
-        beryls = minerals.stream()
-                .filter( i -> ((Object) i).getClass().toString().endsWith("Beryl"))
-                .collect(Collectors.toList());
+        beryls = minerals.stream().filter(i -> ((Object) i).getClass().toString().endsWith("Beryl")).collect(Collectors.toList());
         return beryls;
     }
 

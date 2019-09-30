@@ -5,8 +5,12 @@ public interface Mineral {
         TRANSPARENT, TRANSLUCENT, OPAQUE;
 
     }
+
     double getCarat();
+
     double getPrice();
+
     boolean isPrecious();
+
     Transparency getTransparency();
 }

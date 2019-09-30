@@ -37,9 +37,6 @@ public class Ruby extends Gemstone {
     @Override
     public String toString() {
         DecimalFormat decimalFormat = new DecimalFormat("#.00");
-        return "\nRuby       " + " carat  = " + decimalFormat.format(carat)
-                + ", price = " + decimalFormat.format(price)
-                + ", isPrecious  = " + isPrecious
-                + ", transparency  = " + transparency ;
+        return "\nRuby       " + " carat  = " + decimalFormat.format(carat) + ", price = " + decimalFormat.format(price) + ", isPrecious  = " + isPrecious + ", transparency  = " + transparency;
     }
 }

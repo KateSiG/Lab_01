@@ -32,9 +32,6 @@ public class Diamond extends Gemstone {
     @Override
     public String toString() {
         DecimalFormat decimalFormat = new DecimalFormat("#.00");
-        return "\nDiamond    " + " carat  = " + decimalFormat.format(carat)
-                + ", price = " + decimalFormat.format(price)
-                + ", isPrecious  = " + isPrecious
-                + ", transparency  = " + transparency ;
+        return "\nDiamond    " + " carat  = " + decimalFormat.format(carat) + ", price = " + decimalFormat.format(price) + ", isPrecious  = " + isPrecious + ", transparency  = " + transparency;
     }
 }

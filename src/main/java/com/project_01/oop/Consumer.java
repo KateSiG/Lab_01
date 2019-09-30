@@ -19,17 +19,15 @@ public class Consumer {
     public static void main(String[] args) {
         Assortment assortment = new Assortment();
         List<Mineral> minerals = assortmentServiceImp.getAll();
-        System.out.println("This is our assortments " +  minerals +
-                            "\n Pleas choose a stone for a necklace:" +
-                "\n D - Diamonds, B - Beryl, C - Cetrin, M - Malachite, R - Ruby, A - All stones");
+        System.out.println("This is our assortments " + minerals + "\n Pleas choose a stone for a necklace:" + "\n D - Diamonds, B - Beryl, C - Cetrin, M - Malachite, R - Ruby, A - All stones");
 
         Scanner sc = new Scanner(System.in);
         String stones = sc.nextLine();
         List<Mineral> mineralsOrder = addStones(stones, minerals);
 
-        System.out.println("Carat from (use a comma for fractions): " );
+        System.out.println("Carat from (use a comma for fractions): ");
         double caratFrom = sc.nextDouble();
-        System.out.println("Carat to (use a comma for fractions): " );
+        System.out.println("Carat to (use a comma for fractions): ");
         double caratTo = sc.nextDouble();
         mineralsOrder = assortmentServiceImp.getByCarats(caratFrom, caratTo, mineralsOrder);
         isCorrect(mineralsOrder);
@@ -41,30 +39,32 @@ public class Consumer {
         sc.close();
         isCorrect(mineralsOrder);
 
-        mineralsOrder.stream()
-                .forEach(i -> System.out.println(i));
-        System.out.println("Carats: " );
+        mineralsOrder.stream().forEach(i -> System.out.print(i));
+
+        System.out.println("\nSum carats: " + mineralsOrder.stream().mapToDouble(i -> i.getCarat()).sum());
+
+        System.out.println("Total coast: " + mineralsOrder.stream().mapToDouble(i -> i.getPrice()).sum());
     }
 
     private static boolean isCorrect(List<Mineral> mineralsOrder) {
-        if(mineralsOrder.size() == 0) {
+        if (mineralsOrder.size() == 0) {
             throw new IllegalArgumentException("Sorry, we have no stones matching your order");
         }
         return true;
     }
 
     private static List<Mineral> getByTransparency(String transparency, List<Mineral> minerals) {
-        List <Mineral> mineralList = new ArrayList<>();
-        if(transparency.contains("1")){
+        List<Mineral> mineralList = new ArrayList<>();
+        if (transparency.contains("1")) {
             mineralList.addAll(assortmentServiceImp.getMineralByTransparensy(Mineral.Transparency.TRANSPARENT, minerals));
         }
-        if (transparency.contains("2")){
+        if (transparency.contains("2")) {
             mineralList.addAll(assortmentServiceImp.getMineralByTransparensy(Mineral.Transparency.TRANSLUCENT, minerals));
         }
-        if (transparency.contains("3")){
+        if (transparency.contains("3")) {
             mineralList.addAll(assortmentServiceImp.getMineralByTransparensy(Mineral.Transparency.OPAQUE, minerals));
         }
-        if(transparency.contains("\\D")){
+        if (transparency.contains("\\D")) {
             throw new IllegalArgumentException("Transparency input is not correct");
         }
         return mineralList;
@@ -86,7 +86,7 @@ public class Consumer {
             if (stones.toUpperCase().contains("D")) {
                 mineralsOrder.addAll(diamondServiceImp.getAll(minerals));
             }
-            if (stones.toUpperCase().contains("M")){
+            if (stones.toUpperCase().contains("M")) {
                 mineralsOrder.addAll(malachiteServiceImp.getAll(minerals));
             }
             if (stones.toUpperCase().contains("R")) {

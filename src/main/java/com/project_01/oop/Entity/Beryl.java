@@ -33,9 +33,6 @@ public class Beryl extends Gemstone {
     @Override
     public String toString() {
         DecimalFormat decimalFormat = new DecimalFormat("#.00");
-        return "\nBeryl      " + " carat  = " + decimalFormat.format(carat)
-                + ", price = " + decimalFormat.format(price)
-                + ", isPrecious  = " + isPrecious
-                + ", transparency  = " + transparency;
+        return "\nBeryl      " + " carat  = " + decimalFormat.format(carat) + ", price = " + decimalFormat.format(price) + ", isPrecious  = " + isPrecious + ", transparency  = " + transparency;
     }
 }

@@ -11,30 +11,22 @@ public class DiamondServiceImp extends MineralService {
 
 
     public List<Mineral> getAll(List<Mineral> minerals) {
-         this.diamonds = minerals.stream()
-                .filter( i -> ((Object) i).getClass().toString().endsWith("Diamond"))
-                .collect(Collectors.toList());
+        this.diamonds = minerals.stream().filter(i -> ((Object) i).getClass().toString().endsWith("Diamond")).collect(Collectors.toList());
         return diamonds;
     }
 
     @Override
     double countAll() {
-        return  diamonds.stream()
-                .mapToDouble(i -> i.getPrice())
-                .sum();
+        return diamonds.stream().mapToDouble(i -> i.getPrice()).sum();
     }
 
     @Override
     void sortByPrecious() {
-        diamonds.stream()
-                .mapToDouble(i -> i.getPrice())
-                .sorted();
+        diamonds.stream().mapToDouble(i -> i.getPrice()).sorted();
     }
 
     @Override
     List<Mineral> getMineralByTransparensy(Mineral.Transparency transparency) {
-        return diamonds.stream()
-                .filter(i -> i.getTransparency() == transparency)
-                .collect(Collectors.toList());
+        return diamonds.stream().filter(i -> i.getTransparency() == transparency).collect(Collectors.toList());
     }
 }
