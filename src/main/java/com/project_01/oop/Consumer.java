@@ -7,7 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
 public class Consumer {
+    private static final Logger LOG = Logger.getLogger(Consumer.class);
 
     private static BerylServiceImp berylServiceImp = new BerylServiceImp();
     private static CitrineServiceImp citrineServiceImp = new CitrineServiceImp();
@@ -17,6 +23,10 @@ public class Consumer {
     private static AssortmentServiceImp assortmentServiceImp = new AssortmentServiceImp();
 
     public static void main(String[] args) {
+        SpringApplication.run(Consumer.class, args);
+
+        LOG.info("creating new Order...");
+
         Assortment assortment = new Assortment();
         List<Mineral> minerals = assortmentServiceImp.getAll();
         System.out.println("This is our assortments " + minerals + "\n Pleas choose a stone for a necklace:" + "\n D - Diamonds, B - Beryl, C - Cetrin, M - Malachite, R - Ruby, A - All stones");
@@ -96,4 +106,3 @@ public class Consumer {
         return mineralsOrder;
     }
 }
-
