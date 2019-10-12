@@ -1,10 +1,12 @@
 package com.project_01.oop.Service;
 
 import com.project_01.oop.Entity.Mineral;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class CitrineServiceImp extends MineralService {
     private AssortmentServiceImp assortmentServiceImp = new AssortmentServiceImp();
     List<Mineral> citrines;
