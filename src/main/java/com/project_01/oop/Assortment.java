@@ -2,6 +2,9 @@ package com.project_01.oop;
 
 import com.project_01.oop.Entity.*;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -32,4 +35,29 @@ public class Assortment {
         }
         return minerals;
     }
+
+//    public static void getAssortmentFromDB(){
+//        try{
+//            Class.forName("org.postgresql.Driver");
+//        }catch (ClassNotFoundException e) {
+//            System.out.println("PostgreSQL JDBC Driver is not found. Include it in your library path ");
+//            e.printStackTrace();
+//            return;
+//        }
+//        System.out.println("PostgreSQL JDBC Driver successfully connected");
+//        Connection connection = null;
+//        try{
+//            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/minerals",
+//                    "postgres", "postgres");
+//        } catch (SQLException s){
+//            System.out.println("Connection Failed");
+//            s.printStackTrace();
+//        }
+//
+//        if (connection != null) {
+//            System.out.println("You successfully connected to database now");
+//        } else {
+//            System.out.println("Failed to make connection to database");
+//        }
+//    }
 }

@@ -25,3 +25,6 @@
 2019-10-11 00:49:54 INFO  AssortmentServiceImp:23 - Show all Minerals
 2019-10-11 00:50:04 INFO  AssortmentServiceImp:52 - Show minerals by carats class com.project_01.oop.Service.AssortmentServiceImp
 2019-10-11 00:50:07 INFO  AssortmentServiceImp:47 - Show minerals by transparensy
+2019-10-16 19:14:31 INFO  Assortment:23 - creating new Assortment...
+2019-10-16 19:14:31 INFO  Consumer:24 - creating new Order...
+2019-10-16 19:14:31 INFO  AssortmentServiceImp:22 - Show all Minerals

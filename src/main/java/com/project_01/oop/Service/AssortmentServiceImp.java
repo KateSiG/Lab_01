@@ -3,12 +3,11 @@ package com.project_01.oop.Service;
 import com.project_01.oop.Assortment;
 import com.project_01.oop.Entity.Mineral;
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
+
 public class AssortmentServiceImp extends MineralService {
     private static final Logger LOG = Logger.getLogger(AssortmentServiceImp.class);
 

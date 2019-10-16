@@ -7,7 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 public class Consumer {
+    private static final Logger LOG = Logger.getLogger(Consumer.class);
 
     private static BerylServiceImp berylServiceImp = new BerylServiceImp();
     private static CitrineServiceImp citrineServiceImp = new CitrineServiceImp();
@@ -17,33 +20,37 @@ public class Consumer {
     private static AssortmentServiceImp assortmentServiceImp = new AssortmentServiceImp();
 
     public static void main(String[] args) {
+
+        LOG.info("creating new Order...");
+
         Assortment assortment = new Assortment();
         List<Mineral> minerals = assortmentServiceImp.getAll();
-        System.out.println("This is our assortments " + minerals + "\n Pleas choose a stone for a necklace:" + "\n D - Diamonds, B - Beryl, C - Cetrin, M - Malachite, R - Ruby, A - All stones");
-
-        Scanner sc = new Scanner(System.in);
-        String stones = sc.nextLine();
-        List<Mineral> mineralsOrder = addStones(stones, minerals);
-
-        System.out.println("Carat from (use a comma for fractions): ");
-        double caratFrom = sc.nextDouble();
-        System.out.println("Carat to (use a comma for fractions): ");
-        double caratTo = sc.nextDouble();
-        mineralsOrder = assortmentServiceImp.getByCarats(caratFrom, caratTo, mineralsOrder);
-        isCorrect(mineralsOrder);
-
-        System.out.println("Which transparency do you prefer? (1 - TRANSPARENT, 2 - TRANSLUCENT, 3 - OPAQUE)");
-        sc.nextLine();
-        String transparency = sc.nextLine();
-        mineralsOrder = getByTransparency(transparency, mineralsOrder);
-        sc.close();
-        isCorrect(mineralsOrder);
-
-        mineralsOrder.stream().forEach(i -> System.out.print(i));
-
-        System.out.println("\nSum carats: " + mineralsOrder.stream().mapToDouble(i -> i.getCarat()).sum());
-
-        System.out.println("Total coast: " + mineralsOrder.stream().mapToDouble(i -> i.getPrice()).sum());
+//        Assortment.getAssortmentFromDB();
+//        System.out.println("This is our assortments " + minerals + "\n Pleas choose a stone for a necklace:" + "\n D - Diamonds, B - Beryl, C - Cetrin, M - Malachite, R - Ruby, A - All stones");
+//
+//        Scanner sc = new Scanner(System.in);
+//        String stones = sc.nextLine();
+//        List<Mineral> mineralsOrder = addStones(stones, minerals);
+//
+//        System.out.println("Carat from (use a comma for fractions): ");
+//        double caratFrom = sc.nextDouble();
+//        System.out.println("Carat to (use a comma for fractions): ");
+//        double caratTo = sc.nextDouble();
+//        mineralsOrder = assortmentServiceImp.getByCarats(caratFrom, caratTo, mineralsOrder);
+//        isCorrect(mineralsOrder);
+//
+//        System.out.println("Which transparency do you prefer? (1 - TRANSPARENT, 2 - TRANSLUCENT, 3 - OPAQUE)");
+//        sc.nextLine();
+//        String transparency = sc.nextLine();
+//        mineralsOrder = getByTransparency(transparency, mineralsOrder);
+//        sc.close();
+//        isCorrect(mineralsOrder);
+//
+//        mineralsOrder.stream().forEach(i -> System.out.print(i));
+//
+//        System.out.println("\nSum carats: " + mineralsOrder.stream().mapToDouble(i -> i.getCarat()).sum());
+//
+//        System.out.println("Total coast: " + mineralsOrder.stream().mapToDouble(i -> i.getPrice()).sum());
     }
 
     private static boolean isCorrect(List<Mineral> mineralsOrder) {
@@ -96,4 +103,3 @@ public class Consumer {
         return mineralsOrder;
     }
 }
-
