@@ -5,8 +5,11 @@ import com.project_01.oop.Entity.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import org.apache.log4j.Logger;
 
 public class Assortment {
+    private static final Logger LOG = Logger.getLogger(String.valueOf(Assortment.class));
+
     private static List<Mineral> minerals = createMinerals();
 
     public List<Mineral> getMinerals() {
@@ -14,6 +17,8 @@ public class Assortment {
     }
 
     private static List<Mineral> createMinerals() {
+        LOG.info("creating new Assortment...");
+
         minerals = new ArrayList<>();
         Random random = new Random();
         Mineral.Transparency transparensyAll[] = Mineral.Transparency.values();
