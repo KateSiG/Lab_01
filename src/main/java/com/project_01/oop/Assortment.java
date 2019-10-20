@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import org.apache.log4j.Logger;
+import org.postgresql.Driver;
 
 public class Assortment {
     private static final Logger LOG = Logger.getLogger(String.valueOf(Assortment.class));
@@ -36,28 +37,29 @@ public class Assortment {
         return minerals;
     }
 
-//    public static void getAssortmentFromDB(){
-//        try{
-//            Class.forName("org.postgresql.Driver");
-//        }catch (ClassNotFoundException e) {
-//            System.out.println("PostgreSQL JDBC Driver is not found. Include it in your library path ");
-//            e.printStackTrace();
-//            return;
-//        }
-//        System.out.println("PostgreSQL JDBC Driver successfully connected");
-//        Connection connection = null;
-//        try{
-//            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/minerals",
-//                    "postgres", "postgres");
-//        } catch (SQLException s){
-//            System.out.println("Connection Failed");
-//            s.printStackTrace();
-//        }
-//
-//        if (connection != null) {
-//            System.out.println("You successfully connected to database now");
-//        } else {
-//            System.out.println("Failed to make connection to database");
-//        }
-//    }
+    public static void getAssortmentFromDB(){
+        try{
+            Class.forName("org.postgresql.Driver");
+            DriverManager.registerDriver(new Driver());
+        }catch (SQLException e) {
+            LOG.error("PostgreSQL JDBC Driver is not found. Include it in your library path ");
+        } catch (ClassNotFoundException e) {
+           LOG.error(e);
+        }
+        System.out.println("PostgreSQL JDBC Driver successfully connected");
+        Connection connection = null;
+        try{
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/minerals",
+                    "postgres", "postgres");
+        } catch (SQLException s){
+            System.out.println("Connection Failed");
+            s.printStackTrace();
+        }
+
+        if (connection != null) {
+            System.out.println("You successfully connected to database now");
+        } else {
+            System.out.println("Failed to make connection to database");
+        }
+    }
 }
