@@ -1,5 +1,6 @@
 package com.project_01.oop.Service;
 
+import com.project_01.oop.Entity.Diamond;
 import com.project_01.oop.Entity.Mineral;
 //import org.springframework.stereotype.Service;
 
